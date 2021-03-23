@@ -1,6 +1,6 @@
 module.exports = ({github, context}) => {
-  const owner = context.repo().owner
-  const repo = context.repo().repo
+  const owner = context.repo.owner
+  const repo = context.repo.repo
   const run_id = context.runId
 
   console.log('run_id', run_id)
