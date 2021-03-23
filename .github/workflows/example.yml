@@ -34,7 +34,7 @@ jobs:
 
   # dummy job to wait until block merge until all tests completed
   done:
-    runs-on: [ ubuntu-latest, self-hosted ]
+    runs-on: [ ubuntu-latest ]
     needs: [ tests ]
     steps:
       - run: echo done
