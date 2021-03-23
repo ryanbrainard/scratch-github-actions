@@ -1,6 +1,12 @@
 name: ci
 
-on: [ push ]
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
 
 defaults:
   run:
@@ -14,7 +20,7 @@ jobs:
       matrix:
         include:
           - name: m1-s1
-          - name: m1-s2-hi-ya
+          - name: m1-s2
     steps:
       - uses: actions/checkout@v2
         with:
