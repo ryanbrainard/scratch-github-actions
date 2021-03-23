@@ -1,0 +1,41 @@
+name: ci
+
+on: [ push ]
+
+defaults:
+  run:
+    shell: bash
+    working-directory: ./src/github.com/ryanbrainard/scratch-github-actions
+
+jobs:
+  tests:
+    runs-on: [ ubuntu-latest ]
+    strategy:
+      matrix:
+        include:
+          - name: m1-s1
+          - name: m1-s2
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          path: ./src/github.com/${{ github.repository }}
+      - uses: actions/setup-go@v2
+      - name: run ${{ matrix.name }} with retry
+        uses: nick-invision/retry@v2
+        with:
+          max_attempts: 3
+          timeout_minutes: 60
+          retry_on: error
+          warning_on_retry: true
+          command: |
+            cd ./src/github.com/${{ github.repository }}
+            echo ${{ matrix.name }}
+            go test
+
+  # dummy job to wait until block merge until all tests completed
+  done:
+    runs-on: [ ubuntu-latest, self-hosted ]
+    needs: [ tests ]
+    steps:
+      - run: echo done
+        working-directory: /
