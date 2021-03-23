@@ -7,29 +7,60 @@ const github = new Octokit({auth: process.env.GITHUB_TOKEN});
 
 const context = {
   payload: {
-    after: '2ffce3cb3b413095e924bbd94ad20135f1aad93d',
-    base_ref: null,
-    before: 'fc16deed5f53f56b2456319338763fcb2f2dcc88',
-    commits: [[Object]],
-    compare: 'https://github.com/ryanbrainard/scratch-github-actions/compare/fc16deed5f53...2ffce3cb3b41',
-    created: false,
-    deleted: false,
-    forced: false,
-    head_commit: {
-      author: [Object],
-      committer: [Object],
-      distinct: true,
-      id: '2ffce3cb3b413095e924bbd94ad20135f1aad93d',
-      message: 'log context',
-      timestamp: '2021-03-23T12:12:39+09:00',
-      tree_id: 'fe3677c38ae0bace72456fa16161c39c4cfd2def',
-      url: 'https://github.com/ryanbrainard/scratch-github-actions/commit/2ffce3cb3b413095e924bbd94ad20135f1aad93d'
+    action: 'synchronize',
+    after: 'bbc5d791f59b43c935f278369bca8921e38a2c53',
+    before: '55460091eaa78d9093701d273a4d29cd56e1ba8b',
+    number: 1,
+    pull_request: {
+      _links: [Object],
+      active_lock_reason: null,
+      additions: 4,
+      assignee: null,
+      assignees: [],
+      author_association: 'OWNER',
+      auto_merge: null,
+      base: [Object],
+      body: '',
+      changed_files: 2,
+      closed_at: null,
+      comments: 0,
+      comments_url: 'https://api.github.com/repos/ryanbrainard/scratch-github-actions/issues/1/comments',
+      commits: 4,
+      commits_url: 'https://api.github.com/repos/ryanbrainard/scratch-github-actions/pulls/1/commits',
+      created_at: '2021-03-23T03:40:42Z',
+      deletions: 2,
+      diff_url: 'https://github.com/ryanbrainard/scratch-github-actions/pull/1.diff',
+      draft: false,
+      head: [Object],
+      html_url: 'https://github.com/ryanbrainard/scratch-github-actions/pull/1',
+      id: 598518543,
+      issue_url: 'https://api.github.com/repos/ryanbrainard/scratch-github-actions/issues/1',
+      labels: [],
+      locked: false,
+      maintainer_can_modify: false,
+      merge_commit_sha: '94cf4dae298b153183ff484af66d6bb30038065b',
+      mergeable: null,
+      mergeable_state: 'unknown',
+      merged: false,
+      merged_at: null,
+      merged_by: null,
+      milestone: null,
+      node_id: 'MDExOlB1bGxSZXF1ZXN0NTk4NTE4NTQz',
+      number: 1,
+      patch_url: 'https://github.com/ryanbrainard/scratch-github-actions/pull/1.patch',
+      rebaseable: null,
+      requested_reviewers: [],
+      requested_teams: [],
+      review_comment_url: 'https://api.github.com/repos/ryanbrainard/scratch-github-actions/pulls/comments{/number}',
+      review_comments: 0,
+      review_comments_url: 'https://api.github.com/repos/ryanbrainard/scratch-github-actions/pulls/1/comments',
+      state: 'open',
+      statuses_url: 'https://api.github.com/repos/ryanbrainard/scratch-github-actions/statuses/bbc5d791f59b43c935f278369bca8921e38a2c53',
+      title: 'PR A',
+      updated_at: '2021-03-23T03:53:46Z',
+      url: 'https://api.github.com/repos/ryanbrainard/scratch-github-actions/pulls/1',
+      user: [Object]
     },
-    pusher: {
-      email: '966764+ryanbrainard@users.noreply.github.com',
-      name: 'ryanbrainard'
-    },
-    ref: 'refs/heads/master',
     repository: {
       archive_url: 'https://api.github.com/repos/ryanbrainard/scratch-github-actions/{archive_format}{/ref}',
       archived: false,
@@ -43,7 +74,7 @@ const context = {
       compare_url: 'https://api.github.com/repos/ryanbrainard/scratch-github-actions/compare/{base}...{head}',
       contents_url: 'https://api.github.com/repos/ryanbrainard/scratch-github-actions/contents/{+path}',
       contributors_url: 'https://api.github.com/repos/ryanbrainard/scratch-github-actions/contributors',
-      created_at: 1616462539,
+      created_at: '2021-03-23T01:22:19Z',
       default_branch: 'master',
       deployments_url: 'https://api.github.com/repos/ryanbrainard/scratch-github-actions/deployments',
       description: null,
@@ -76,7 +107,6 @@ const context = {
       language: 'JavaScript',
       languages_url: 'https://api.github.com/repos/ryanbrainard/scratch-github-actions/languages',
       license: null,
-      master_branch: 'master',
       merges_url: 'https://api.github.com/repos/ryanbrainard/scratch-github-actions/merges',
       milestones_url: 'https://api.github.com/repos/ryanbrainard/scratch-github-actions/milestones{/number}',
       mirror_url: null,
@@ -90,11 +120,10 @@ const context = {
       },
       private: true,
       pulls_url: 'https://api.github.com/repos/ryanbrainard/scratch-github-actions/pulls{/number}',
-      pushed_at: 1616469165,
+      pushed_at: '2021-03-23T03:53:45Z',
       releases_url: 'https://api.github.com/repos/ryanbrainard/scratch-github-actions/releases{/id}',
-      size: 7,
+      size: 554,
       ssh_url: 'git@github.com:ryanbrainard/scratch-github-actions.git',
-      stargazers: 0,
       stargazers_count: 0,
       stargazers_url: 'https://api.github.com/repos/ryanbrainard/scratch-github-actions/stargazers',
       statuses_url: 'https://api.github.com/repos/ryanbrainard/scratch-github-actions/statuses/{sha}',
@@ -104,8 +133,8 @@ const context = {
       tags_url: 'https://api.github.com/repos/ryanbrainard/scratch-github-actions/tags',
       teams_url: 'https://api.github.com/repos/ryanbrainard/scratch-github-actions/teams',
       trees_url: 'https://api.github.com/repos/ryanbrainard/scratch-github-actions/git/trees{/sha}',
-      updated_at: '2021-03-23T03:10:23Z',
-      url: 'https://github.com/ryanbrainard/scratch-github-actions',
+      updated_at: '2021-03-23T03:33:13Z',
+      url: 'https://api.github.com/repos/ryanbrainard/scratch-github-actions',
       watchers: 0,
       watchers_count: 0
     },
@@ -130,21 +159,21 @@ const context = {
       url: 'https://api.github.com/users/ryanbrainard'
     }
   },
-  eventName: 'push',
-  sha: '2ffce3cb3b413095e924bbd94ad20135f1aad93d',
-  ref: 'refs/heads/master',
+  eventName: 'pull_request',
+  sha: '4bf9d8845f9be4e246901a3e2c41b1767dc055f5',
+  ref: 'refs/pull/1/merge',
   workflow: 'ci',
   action: 'actionsgithub-script',
   actor: 'ryanbrainard',
   job: 'report-annotations',
-  runNumber: 9,
-  runId: 678250182
+  runNumber: 16,
+  runId: 678328146
 }
 
 // simulate accessor
 context.repo = {
-    owner: context.payload.repository.owner.login,
-    repo: context.payload.repository.name
+  owner: context.payload.repository.owner.login,
+  repo: context.payload.repository.name
 }
 
 script({github, context})
