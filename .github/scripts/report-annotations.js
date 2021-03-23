@@ -1,9 +1,9 @@
 module.exports = ({github, context}) => {
-  console.log(context)
+  const owner = context.repo().owner
+  const repo = context.repo().repo
+  const run_id = context.runId
 
-  const owner = 'ryanbrainard'
-  const repo = 'scratch-github-actions'
-  const run_id = '678080008'
+  console.log('run_id', run_id)
 
   github.actions.getWorkflowRun({
     owner,
