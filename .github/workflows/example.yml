@@ -20,6 +20,9 @@ jobs:
         with:
           path: ./src/github.com/${{ github.repository }}
       - uses: actions/setup-go@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 2.7
       - name: run ${{ matrix.name }} with retry
         uses: nick-invision/retry@v2
         with:
