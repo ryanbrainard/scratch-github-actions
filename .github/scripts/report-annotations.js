@@ -1,4 +1,6 @@
 module.exports = ({github, context}) => {
+  console.log(context)
+
   const owner = 'ryanbrainard'
   const repo = 'scratch-github-actions'
   const run_id = '678080008'
