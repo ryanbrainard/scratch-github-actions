@@ -38,4 +38,3 @@ jobs:
     needs: [ tests ]
     steps:
       - run: echo done
-        working-directory: /
