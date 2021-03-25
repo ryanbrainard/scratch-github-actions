@@ -17,10 +17,10 @@ jobs:
   loops:
     runs-on: [ ubuntu-latest ]
     steps:
-      - run: sudo cat /etc/modules.conf
-      - run: sudo cat /etc/modules-load.d/modules.conf
-      - run: sudo cat /etc/default/grub
-      - run: sudo ls /dev/loop*
+      - run: sudo cat /etc/modules.conf || true
+      - run: sudo cat /etc/modules-load.d/modules.conf || true
+      - run: sudo cat /etc/default/grub || true
+      - run: sudo ls /dev/loop* || true
   tests:
     runs-on: [ ubuntu-latest ]
     strategy:
