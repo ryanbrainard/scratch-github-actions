@@ -17,10 +17,14 @@ jobs:
   loops:
     runs-on: [ ubuntu-latest ]
     steps:
-      - run: sudo cat /etc/modules.conf || true
-      - run: sudo cat /etc/modules-load.d/modules.conf || true
-      - run: sudo cat /etc/default/grub || true
-      - run: sudo ls /dev/loop* || true
+      - run: sudo cat /etc/modules.conf
+        if: always()
+      - run: sudo cat /etc/modules-load.d/modules.conf
+        if: ${{ always() }}
+      - run: sudo cat /etc/default/grub
+        if: ${{ always() }}
+      - run: sudo ls /dev/loop*
+        if: ${{ always() }}
   tests:
     runs-on: [ ubuntu-latest ]
     strategy:
