@@ -25,6 +25,10 @@ jobs:
         if: ${{ always() }}
       - run: sudo ls /dev/loop*
         if: ${{ always() }}
+      - run: sudo losetup --all
+        if: ${{ always() }}
+      - run: sudo losetup --find
+        if: ${{ always() }}
   tests:
     runs-on: [ ubuntu-latest ]
     strategy:
