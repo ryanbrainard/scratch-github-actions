@@ -19,7 +19,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-        path: ./src/github.com/${{ github.repository }}
+          path: ./src/github.com/${{ github.repository }}
       - run: sudo cat /etc/modules.conf
         if: always()
       - run: sudo cat /etc/modules-load.d/modules.conf
