@@ -9,11 +9,6 @@ on:
       - master
 
 jobs:
-  local-on-docker:
-    runs-on: [ self-hosted ]
-    steps:
-      - uses: actions/checkout@v2
-      - run: echo "hello local in docker"
   aws-tf:
     runs-on: [ self-hosted, ubuntu, example]
     steps:
