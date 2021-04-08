@@ -15,7 +15,7 @@ defaults:
 
 jobs:
   loops:
-    runs-on: [ ubuntu-latest ]
+    runs-on: [ ubuntu,example ]
     steps:
       - uses: actions/checkout@v2
         with:
