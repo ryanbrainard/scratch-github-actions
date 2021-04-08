@@ -8,67 +8,14 @@ on:
     branches:
       - master
 
-defaults:
-  run:
-    shell: bash
-    working-directory: ./src/github.com/ryanbrainard/scratch-github-actions
-
 jobs:
-  loops:
-    runs-on: [ ubuntu,example ]
+  local-on-docker:
+    runs-on: [ self-hosted ]
     steps:
       - uses: actions/checkout@v2
-        with:
-          path: ./src/github.com/${{ github.repository }}
-      - run: sudo cat /etc/modules.conf
-        if: always()
-      - run: sudo cat /etc/modules-load.d/modules.conf
-        if: ${{ always() }}
-      - run: sudo cat /etc/default/grub
-        if: ${{ always() }}
-      - run: sudo ls /dev/loop*
-        if: ${{ always() }}
-      - run: sudo losetup --all
-        if: ${{ always() }}
-      - run: sudo losetup --find
-        if: ${{ always() }}
-  tests:
-    runs-on: [ ubuntu-latest ]
-    strategy:
-      matrix:
-        include:
-          - name: m1-s1
-          - name: m1-s2
+      - run: echo "hello local in docker"
+  aws-tf:
+    runs-on: [ self-hosted, ubuntu, example]
     steps:
       - uses: actions/checkout@v2
-        with:
-          path: ./src/github.com/${{ github.repository }}
-      - uses: actions/setup-go@v2
-      - name: run ${{ matrix.name }} with retry
-        uses: nick-invision/retry@v2
-        with:
-          max_attempts: 3
-          timeout_minutes: 60
-          retry_on: error
-          warning_on_retry: true
-          command: |
-            cd ./src/github.com/${{ github.repository }}
-            echo ${{ matrix.name }}
-            test -f /tmp/hello
-          on_retry_command: |
-            cd ./src/github.com/${{ github.repository }}
-            echo ${{ matrix.name }}
-            touch /tmp/hello
-
-
-  report-annotations:
-    runs-on: [ ubuntu-latest ]
-    needs: [ tests ]
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/github-script@v3
-        with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
-          script: |
-            const script = require(`${process.env.GITHUB_WORKSPACE}/.github/scripts/report-annotations`)
-            script({github, context})
+      - run: echo "hello aws"
